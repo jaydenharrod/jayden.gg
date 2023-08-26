@@ -1,6 +1,6 @@
 ---
-title: "Why I picked the Volvo EX30 as my first electric vehicle"
-description: "The sweet spot that ditched my ICE Subaru Forester XT"
+title: "Why I picked the Volvo EX30"
+description: "The small SUV that made me switch to an EV and replace my Forester XT."
 publishDate: "01 September 2023"
 coverImage:
   src: "./volvo-ex30.jpeg"
