@@ -1,0 +1,74 @@
+<script>
+	class ThemeToggle extends HTMLElement {
+		constructor() {
+			super();
+			const button = this.querySelector("button") as HTMLButtonElement;
+
+			if (button) {
+				// button clicked, fire event
+				button.addEventListener("click", (e) => {
+					if (e.currentTarget instanceof HTMLButtonElement) {
+						// isPressed === dark mode current on
+						let isPressed = e.currentTarget.getAttribute("aria-pressed") === "true";
+
+						// invert isPressed
+						let themeChangeEvent = new CustomEvent("theme-change", {
+							detail: {
+								theme: isPressed ? "light" : "dark",
+							},
+						});
+						// dispatch event -> ThemeProvider.astro
+						document.documentElement.dispatchEvent(themeChangeEvent);
+						// toggle the aria-pressed attribute
+						button.setAttribute("aria-pressed", String(!isPressed));
+					}
+				});
+			}
+		}
+	}
+
+	customElements.define("theme-toggle", ThemeToggle);
+</script>
+
+<theme-toggle class="ms-2 sm:ms-4">
+	<button
+		type="button"
+		id="toggle-theme"
+		class="group relative h-9 w-9 rounded-md bg-zinc-200 p-2 ring-zinc-400 transition-all hover:ring-2 dark:bg-zinc-700"
+		aria-label="Toggle Dark Mode"
+	>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			class="absolute start-1/2 top-1/2 h-7 w-7 -translate-x-1/2 -translate-y-1/2 scale-0 opacity-0 transition-all group-aria-pressed:scale-100 group-aria-pressed:opacity-100"
+			aria-hidden="true"
+			focusable="false"
+			width="32"
+			height="32"
+			viewBox="0 0 256 256"
+			><path
+				fill="currentColor"
+				d="M240 154h-42.72a70.91 70.91 0 0 0 .72-10a70 70 0 0 0-140 0a70.91 70.91 0 0 0 .72 10H16a6 6 0 0 0 0 12h224a6 6 0 0 0 0-12ZM70 144a58 58 0 1 1 115.13 10H70.87a58.63 58.63 0 0 1-.87-10Zm144 56a6 6 0 0 1-6 6H48a6 6 0 0 1 0-12h160a6 6 0 0 1 6 6ZM74.63 42.69a6 6 0 0 1 10.74-5.37l8 16a6 6 0 0 1-10.74 5.36Zm-56 50.63a6 6 0 0 1 8.05-2.69l16 8a6 6 0 0 1-5.36 10.74l-16-8a6 6 0 0 1-2.69-8.05Zm192 13.36a6 6 0 0 1 2.69-8.05l16-8a6 6 0 1 1 5.36 10.74l-16 8a6 6 0 0 1-8.05-2.69Zm-48-53.36l8-16a6 6 0 0 1 10.74 5.37l-8 16a6 6 0 1 1-10.74-5.36Z"
+			></path></svg
+		>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			class="absolute start-1/2 top-1/2 h-7 w-7 -translate-x-1/2 -translate-y-1/2 scale-0 opacity-0 transition-all group-aria-[pressed=false]:scale-100 group-aria-[pressed=false]:opacity-100"
+			aria-hidden="true"
+			focusable="false"
+			width="32"
+			height="32"
+			viewBox="0 0 256 256"
+			><path
+				fill="currentColor"
+				d="M240 96a8 8 0 0 1-8 8h-16v16a8 8 0 0 1-16 0v-16h-16a8 8 0 0 1 0-16h16V72a8 8 0 0 1 16 0v16h16a8 8 0 0 1 8 8Zm-96-40h8v8a8 8 0 0 0 16 0v-8h8a8 8 0 0 0 0-16h-8v-8a8 8 0 0 0-16 0v8h-8a8 8 0 0 0 0 16Zm72.77 97a8 8 0 0 1 1.43 8A96 96 0 1 1 95.07 37.8a8 8 0 0 1 10.6 9.06a88.07 88.07 0 0 0 103.47 103.47a8 8 0 0 1 7.63 2.67Zm-19.39 14.88c-1.79.09-3.59.14-5.38.14A104.11 104.11 0 0 1 88 64c0-1.79 0-3.59.14-5.38a80 80 0 1 0 109.24 109.24Z"
+			></path></svg
+		>
+	</button>
+</theme-toggle>
+
+{/* Inlined to avoid FOUC. */}
+<script is:inline>
+	const bodyThemeIsDark = document.documentElement.classList.contains("dark");
+	const button = document.getElementById("toggle-theme");
+	button.setAttribute("aria-pressed", String(bodyThemeIsDark));
+</script>
