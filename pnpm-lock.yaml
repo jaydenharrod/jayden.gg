@@ -112,9 +112,6 @@ devDependencies:
   tailwindcss:
     specifier: ^3.3.2
     version: 3.3.3
-  typescript:
-    specifier: ^5.1.5
-    version: 5.1.6
 
 packages:
 
