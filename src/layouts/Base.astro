@@ -6,6 +6,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SkipLink from "@/components/SkipLink";
 import { siteConfig } from "@/site-config";
+import { ViewTransitions } from "astro:transitions";
 
 interface Props {
 	meta: SiteMeta;
@@ -19,6 +20,7 @@ const {
 <html lang={siteConfig.lang}>
 	<head>
 		<BaseHead title={title} description={description} ogImage={ogImage} articleDate={articleDate} />
+		<ViewTransitions />
 	</head>
 	<body>
 		<ThemeProvider />

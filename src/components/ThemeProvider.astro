@@ -1,25 +1,31 @@
----
-import { siteConfig } from "@/site-config";
-
-const { themeColorDark, themeColorLight } = siteConfig;
----
-
 {/* Inlined to avoid FOUC. */}
-<script define:vars={{ themeColorDark, themeColorLight }}>
-	const root = document.documentElement;
-	const colorThemeMetaTag = document.querySelector("meta[name='theme-color']");
-	const storedTheme = typeof localStorage !== "undefined" && localStorage.getItem("theme");
-	const userTheme =
-		storedTheme || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+<script is:inline>
+	function getUserPref() {
+		const storedTheme = typeof localStorage !== "undefined" && localStorage.getItem("theme");
+		return (
+			storedTheme || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark")
+		);
+	}
+
 	function setTheme(theme) {
-		root.classList.toggle("dark", theme === "dark");
-		colorThemeMetaTag.setAttribute("content", theme === "dark" ? themeColorDark : themeColorLight);
+		const colorThemeMetaTag = document.querySelector("meta[name='theme-color']");
+		document.documentElement.classList.toggle("dark", theme === "dark");
+		const bgColour = getComputedStyle(document.body).getPropertyValue("--theme-bg");
+
+		colorThemeMetaTag.setAttribute("content", `hsl(${bgColour})`);
 		if (typeof localStorage !== "undefined") {
 			localStorage.setItem("theme", theme);
 		}
 	}
-	setTheme(userTheme);
-	root.addEventListener("theme-change", (e) => {
+
+	// initial setup
+	setTheme(getUserPref());
+
+	// View Transitions hook to restore theme mode
+	document.addEventListener("astro:after-swap", () => setTheme(getUserPref()));
+
+	// listen for theme-change custom event, fired in src/components/ThemeToggle.astro
+	document.addEventListener("theme-change", (e) => {
 		setTheme(e.detail.theme);
 	});
 </script>

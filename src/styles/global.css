@@ -10,6 +10,7 @@
 		--theme-accent-2: #272f27;
 		--theme-quote: #2c3e2d;
 		--theme-menu-bg: hsl(0, 0%, 100%);
+		--theme-quote: 351deg 66% 48%;
 	}
 
 	:root.dark {
@@ -21,6 +22,7 @@
 		--theme-accent-2: #eeeff1;
 		--theme-quote: #eeeff1;
 		--theme-menu-bg: rgb(29 31 33 / 0.85);
+		--theme-quote: 102deg 100% 86%;
 	}
 
 	html {
