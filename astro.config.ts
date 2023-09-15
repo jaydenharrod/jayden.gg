@@ -16,9 +16,6 @@ export default defineConfig({
 			wrap: true,
 		},
 	},
-	experimental: {
-		assets: true,
-	},
 	image: {
 		// https://docs.astro.build/en/guides/assets/#using-sharp
 		service: sharpImageService(),

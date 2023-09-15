@@ -18,7 +18,7 @@
 							},
 						});
 						// dispatch event -> ThemeProvider.astro
-						document.documentElement.dispatchEvent(themeChangeEvent);
+						document.dispatchEvent(themeChangeEvent);
 						// toggle the aria-pressed attribute
 						button.setAttribute("aria-pressed", String(!isPressed));
 					}

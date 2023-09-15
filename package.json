@@ -15,7 +15,7 @@
 	"devDependencies": {
 		"@astrojs/mdx": "^0.19.7",
 		"@astrojs/sitemap": "^2.0.2",
-		"@astrojs/tailwind": "4.0.0",
+		"@astrojs/tailwind": "5.0.0",
 		"@pagefind/default-ui": "^0.12.0",
 		"@resvg/resvg-js": "^2.4.1",
 		"@tailwindcss/aspect-ratio": "^0.4.2",
@@ -45,8 +45,9 @@
 	},
 	"dependencies": {
 		"@astrojs/prefetch": "^0.2.3",
+		"@astrojs/react": "^3.0.2",
 		"@astrojs/rss": "^2.4.3",
-		"astro": "2.10.14",
+		"astro": "3.1.0",
 		"satori": "0.10.3",
 		"satori-html": "^0.3.2",
 		"sharp": "^0.32.0"

@@ -25,6 +25,7 @@ export default {
 				link: "var(--theme-link)",
 				accent: "var(--theme-accent)",
 				"accent-2": "var(--theme-accent-2)",
+				quote: "hsl(var(--theme-quote) / <alpha-value>)",
 			},
 			fontFamily: {
 				// Add any custom fonts here
