@@ -30,14 +30,14 @@ import logo from "../../../public/primary-logo.png";
 	});
 </script>
 
-<header id="main-header" class="group relative mb-28 flex items-center" transition:persist>
-	<div class="flex">
+<header id="main-header" class="group relative mb-20 flex items-center" transition:persist>
+	<div class="flex items-center">
 		<a
 			class="flex items-center no-underline"
 			href="/"
 			aria-current={url.pathname === "/" ? "page" : false}
 		>
-			<Image class="h-6 w-6" src={logo} alt="Logo" />
+			<Image class="h-8 w-8" src={logo} alt="Logo" />
 		</a>
 		<nav
 			id="navigation-menu"
@@ -57,7 +57,7 @@ import logo from "../../../public/primary-logo.png";
 				MENU_LINKS.map((link) => (
 					<a
 						href={link.path}
-						class="px-8 py-4 leading-none no-underline hover:underline sm:px-4 sm:py-0"
+						class="px-8 py-4 font-bold leading-none no-underline hover:underline sm:px-4 sm:py-0"
 						aria-current={url.pathname === link.path ? "page" : false}
 						rel="prefetch"
 					>
