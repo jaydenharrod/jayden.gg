@@ -3,6 +3,8 @@ import { getCollection } from "astro:content";
 import PageLayout from "@/layouts/Base";
 import PostPreview from "@/components/blog/PostPreview";
 import { sortMDByDate } from "@/utils";
+import profile from "../../public/profile.jpeg";
+import { Image } from "astro:assets";
 
 const MAX_POSTS = 10;
 const allPosts = await getCollection("post");
@@ -12,25 +14,17 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 <PageLayout meta={{ title: "Home" }}>
 	<section>
 		<h1 class="title">Jayden Harrod</h1>
-		<h2 class="mb-6 text-xl">Senior Frontend Engineer</h2>
-		<p class="mb-12">
-			In my engineering career, I've focused on mastery of web development with 7 commerical years
-			of experience maintaining React codebases in start ups, marketplaces, and scale ups. I have a
-			strong passion for engineering leadership, project management, and digital products.
-		</p>
-		<p class="mb-12">
-			I currently work at <a class="cactus-link" href="https://camplify.com/"
-				>Camplify Holdings Limited as an Engineering Manager</a
-			>. Previously worked at <a class="cactus-link" href="https://betmakers.com/"
-				>BetMakers Technology Group (Lead Dev)</a
-			>, <a class="cactus-link" href="https://hipagesgroup.com.au/">hipages Group (FE)</a>, <a
-				class="cactus-link"
-				href="https://nib.com.au/">nib (FE)</a
-			> and <a class="cactus-link" href="https://digivizer.com/">Digivizer (FE)</a>. I enjoy music
-			production, outdoor adventure, bouldering, organisation, and tiny homes 🏡
-		</p>
-		<section aria-label="Blog post list" class="mt-16">
-			<h2 class="title mb-4 text-xl">Latest</h2>
+		<h2 class="text">Software Engineering Manager</h2>
+		<div class="mb-4 flex gap-12">
+			<Image class="h-20 w-20 rounded-2xl" src={profile} alt="Profile Image" />
+			<p class="text">
+				I'm Jayden, a self-taught software engineer passionate about frontend development using
+				React. Beyond coding, I create content on YouTube, bootstrap products, and channel my
+				creativity into writing music.
+			</p>
+		</div>
+		<section aria-label="Blog post list">
+			<h2 class="title mb-4 text-xl">Latest Posts</h2>
 			<ul class="space-y-4 sm:space-y-2">
 				{
 					allPostsByDate.map((p) => (
@@ -39,29 +33,6 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 						</li>
 					))
 				}
-			</ul>
-		</section>
-		<section aria-label="Pulse" class="mt-16">
-			<h2 class="title mb-4 text-xl">Pulse</h2>
-			<ul class="space-y-4 sm:space-y-2">
-				<li class="flex flex-col gap-x-2 sm:flex-row">
-					<span class="min-w-[120px] text-gray-500">Working from:</span>
-					<span>Newcastle, Australia</span>
-				</li>
-				<li class="flex flex-col gap-x-2 sm:flex-row">
-					<span class="min-w-[120px] text-gray-500">Working on:</span>
-					<a
-						href="https://www.coursera.org/professional-certificates/google-project-management?"
-						class="cactus-link"
-						target="_blank">Google Project Management Certification</a
-					>
-				</li>
-				<li class="flex flex-col gap-x-2 sm:flex-row">
-					<span class="min-w-[120px] text-gray-500">Working on:</span>
-					<a href="https://youtube.com/jaydenharrod" class="cactus-link" target="_blank"
-						>YouTube Channel</a
-					>
-				</li>
 			</ul>
 		</section>
 	</section>

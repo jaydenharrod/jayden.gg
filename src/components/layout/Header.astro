@@ -30,44 +30,42 @@ import logo from "../../../public/primary-logo.png";
 	});
 </script>
 
-<header id="main-header" class="group relative mb-20 flex items-center" transition:persist>
-	<div class="flex items-center">
-		<a
-			class="flex items-center no-underline"
-			href="/"
-			aria-current={url.pathname === "/" ? "page" : false}
-		>
-			<Image class="h-8 w-8" src={logo} alt="Logo" />
-		</a>
-		<nav
-			id="navigation-menu"
-			class="absolute -inset-x-4 top-14 hidden flex-col items-end gap-y-4 rounded-md bg-[--theme-menu-bg] py-4 text-xl shadow backdrop-blur group-[.menu-open]:z-50 group-[.menu-open]:flex sm:static sm:z-auto sm:ml-4 sm:mt-1 sm:flex sm:flex-row sm:items-center sm:items-baseline sm:bg-transparent sm:py-0 sm:text-base sm:text-inherit sm:shadow-none sm:backdrop-blur-none"
-			aria-label="Main menu"
-		>
-			<a
-				href="/"
-				class="px-8 py-4 leading-none no-underline hover:underline sm:sr-only sm:py-0"
-				aria-current={url.pathname === "/" ? "page" : false}
-				rel="prefetch"
+<header
+	id="main-header"
+	class="group relative mb-20 flex items-center justify-between"
+	transition:persist
+>
+	<a
+		class="flex items-center no-underline"
+		href="/"
+		aria-current={url.pathname === "/" ? "page" : false}
+	>
+		<svg class="h-10 w-10">
+			<g id="SvgjsG1292" transform="matrix(2, 0, 0, 2, 0, 0)" fill="var(--theme-accent)"
+				><path
+					d="M3.66 7.76 l3 0 l0 7.24 c0 3.14 -2.44 5.1 -5.4 5.1 c-0.22 0 -0.4 0 -0.5 -0.02 s-0.24 -0.06 -0.38 -0.08 l0 -2.78 c0.26 0.06 0.54 0.1 0.8 0.1 c1.54 0 2.48 -0.72 2.48 -2.32 l0 -7.24 z"
+				></path></g
 			>
-				Home
-			</a>
-
-			{
-				MENU_LINKS.map((link) => (
-					<a
-						href={link.path}
-						class="px-8 py-4 font-bold leading-none no-underline hover:underline sm:px-4 sm:py-0"
-						aria-current={url.pathname === link.path ? "page" : false}
-						rel="prefetch"
-					>
-						{link.title}
-					</a>
-				))
-			}
-		</nav>
-	</div>
-	<Search />
+		</svg>
+	</a>
+	<nav
+		id="navigation-menu"
+		class="absolute -inset-x-4 top-14 hidden flex-col items-end gap-y-4 rounded-md bg-[--theme-menu-bg] py-4 text-xl shadow backdrop-blur group-[.menu-open]:z-50 group-[.menu-open]:flex sm:static sm:z-auto sm:ml-4 sm:mt-1 sm:flex sm:flex-row sm:items-center sm:items-baseline sm:bg-transparent sm:py-0 sm:text-base sm:text-inherit sm:shadow-none sm:backdrop-blur-none"
+		aria-label="Main menu"
+	>
+		{
+			MENU_LINKS.map((link) => (
+				<a
+					href={link.path}
+					class="px-8 py-4 leading-none text-accent-2 no-underline hover:underline sm:px-4 sm:py-0"
+					aria-current={url.pathname === link.path ? "page" : false}
+					rel="prefetch"
+				>
+					{link.title}
+				</a>
+			))
+		}
+	</nav>
 	<ThemeToggle />
 	<button
 		id="toggle-navigation-menu"

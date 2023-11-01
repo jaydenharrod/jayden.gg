@@ -29,7 +29,7 @@ export default {
 			},
 			fontFamily: {
 				// Add any custom fonts here
-				sans: [...fontFamily.sans],
+				sans: ["ui-sans-serif", "system-ui", ...fontFamily.sans],
 				serif: [...fontFamily.serif],
 			},
 			transitionProperty: {
@@ -111,7 +111,17 @@ export default {
 					},
 				},
 				".title": {
-					"@apply text-2xl font-semibold text-accent-2": {},
+					"@apply text-3xl font-bold text-accent-2 mb-1": {},
+				},
+				".text": {
+					"@apply mb-8": {},
+				},
+
+				".bg-accent": {
+					"@layer ": {
+						backgronudColor: "var(--theme-accent)",
+						color: "red",
+					},
 				},
 			});
 		}),
