@@ -1,21 +1,14 @@
 ---
-import { getCollection } from "astro:content";
 import PageLayout from "@/layouts/Base";
-import PostPreview from "@/components/blog/PostPreview";
-import { sortMDByDate } from "@/utils";
 import profile from "../../public/profile.jpeg";
 import { Image } from "astro:assets";
-
-const MAX_POSTS = 10;
-const allPosts = await getCollection("post");
-const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 ---
 
 <PageLayout meta={{ title: "Home" }}>
 	<section>
 		<h1 class="title">Jayden Harrod</h1>
 		<h2 class="text">Product & Engineering Leader</h2>
-		<div class="mb-4 flex gap-12">
+		<div class="mb-4 flex gap-8">
 			<Image class="h-20 w-20 rounded-2xl" src={profile} alt="Profile Image" />
 			<p class="text">
 				When I was a teenager, I was lucky enough to get my hands on the Adobe Creative Suite (in
