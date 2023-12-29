@@ -9,7 +9,11 @@ import { Image } from "astro:assets";
 		<h1 class="title">Jayden Harrod</h1>
 		<h2 class="text">Product & Engineering Leader</h2>
 		<div class="mb-4 flex gap-8">
-			<Image class="h-20 w-20 rounded-2xl" src={profile} alt="Profile Image" />
+			<Image
+				class="h-20 w-20 rounded-2xl transition-transform hover:-rotate-2"
+				src={profile}
+				alt="Profile Image"
+			/>
 			<p class="text">
 				When I was a teenager, I was lucky enough to get my hands on the Adobe Creative Suite (in
 				disk form). I dove headfirst, spending all my time mastering Photoshop, After Effects, and
