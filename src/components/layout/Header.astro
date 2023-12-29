@@ -1,10 +1,7 @@
 ---
 import ThemeToggle from "../ThemeToggle.astro";
-import Search from "../Search.astro";
 import { MENU_LINKS } from "@/data/constants";
-import { Image } from "astro:assets";
 const url = new URL(Astro.request.url);
-import logo from "../../../public/primary-logo.png";
 ---
 
 <script>
@@ -35,19 +32,7 @@ import logo from "../../../public/primary-logo.png";
 	class="group relative mb-20 flex items-center justify-between"
 	transition:persist
 >
-	<a
-		class="flex items-center no-underline"
-		href="/"
-		aria-current={url.pathname === "/" ? "page" : false}
-	>
-		<svg class="h-10 w-10">
-			<g id="SvgjsG1292" transform="matrix(2, 0, 0, 2, 0, 0)" fill="var(--theme-accent)"
-				><path
-					d="M3.66 7.76 l3 0 l0 7.24 c0 3.14 -2.44 5.1 -5.4 5.1 c-0.22 0 -0.4 0 -0.5 -0.02 s-0.24 -0.06 -0.38 -0.08 l0 -2.78 c0.26 0.06 0.54 0.1 0.8 0.1 c1.54 0 2.48 -0.72 2.48 -2.32 l0 -7.24 z"
-				></path></g
-			>
-		</svg>
-	</a>
+	<ThemeToggle />
 	<nav
 		id="navigation-menu"
 		class="absolute -inset-x-4 top-14 hidden flex-col items-end gap-y-4 rounded-md bg-[--theme-menu-bg] py-4 text-xl shadow backdrop-blur group-[.menu-open]:z-50 group-[.menu-open]:flex sm:static sm:z-auto sm:ml-4 sm:mt-1 sm:flex sm:flex-row sm:items-center sm:items-baseline sm:bg-transparent sm:py-0 sm:text-base sm:text-inherit sm:shadow-none sm:backdrop-blur-none"
@@ -66,7 +51,6 @@ import logo from "../../../public/primary-logo.png";
 			))
 		}
 	</nav>
-	<ThemeToggle />
 	<button
 		id="toggle-navigation-menu"
 		class="group relative ms-2 h-9 w-9 rounded-md p-2 ring-zinc-400 transition-all hover:ring-2 sm:invisible sm:ms-4 sm:hidden"
