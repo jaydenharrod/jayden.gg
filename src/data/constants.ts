@@ -8,18 +8,11 @@ export const MENU_LINKS = [
 		path: "/about/",
 	},
 	{
-		title: "Gear",
-		path: "/gear/",
-	},
-	{
 		title: "Projects",
 		path: "/projects/",
 	},
+	{
+		title: "Gear",
+		path: "/gear/",
+	},
 ];
-
-// ! Remember to add your own socials
-export const SOCIAL_LINKS = {
-	github: "https://github.com/jaydenharrod",
-	twitter: "https://twitter.com/jaydenharrod",
-	youtube: "https://youtube.com/jaydenharrod",
-};
