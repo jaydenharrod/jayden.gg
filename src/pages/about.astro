@@ -1,11 +1,32 @@
 ---
 import PageLayout from "@/layouts/Base";
+import { Image } from "astro:assets";
+import backpack from "../../public/backpack.jpeg";
+import climbing from "../../public/climbing.jpeg";
+import toastie from "../../public/toastie.jpeg";
 ---
 
 <PageLayout meta={{ title: "About" }}>
 	<section>
 		<h1 class="title">About</h1>
 		<h2 class="text">A technologist from Australia</h2>
+		<div class="mb-10 flex justify-center gap-4">
+			<div
+				class="rounded-lg border-2 border-gray-200 px-2 pb-10 pt-2 shadow-lg transition-transform hover:-rotate-2 dark:bg-gray-300"
+			>
+				<Image class="h-20 w-20 sm:h-52 sm:w-52" src={backpack} alt="Profile Image" />
+			</div>
+			<div
+				class="rounded-lg border-2 border-gray-200 px-2 pb-10 pt-2 shadow-lg transition-transform hover:-rotate-2 dark:bg-gray-300"
+			>
+				<Image class="h-20 w-20 sm:h-52 sm:w-52" src={climbing} alt="Profile Image" />
+			</div>
+			<div
+				class="rounded-lg border-2 border-gray-200 px-2 pb-10 pt-2 shadow-lg transition-transform hover:-rotate-2 dark:bg-gray-300"
+			>
+				<Image class="h-20 w-20 sm:h-52 sm:w-52" src={toastie} alt="Profile Image" />
+			</div>
+		</div>
 		<p class="text">
 			I am Jayden, a seasoned professional in the fields of Product, Design, and Engineering. My
 			journey commenced as a teenager, marked by an introduction to Adobe Creative Suite, which
@@ -32,11 +53,11 @@ import PageLayout from "@/layouts/Base";
 			that transcends traditional disciplinary confines.
 		</p>
 	</section>
-	<section aria-label="Pulse" class="mb-16 mt-16">
+	<section aria-label="Pulse" class="mb-2 mt-16">
 		<h2 class="title mb-4 text-xl">Work</h2>
 		<ul class="space-y-4 sm:space-y-2">
 			<li class="flex flex-col gap-x-2 sm:flex-row">
-				<span class="min-w-[120px] text-gray-500">Founder & CTO:</span>
+				<span class="min-w-[120px] text-gray-500">Director & CTO:</span>
 				<span
 					><a class="cactus-link" href="https://stewardship.ventures/"
 						>Stewardship Ventures PTY LTD</a
