@@ -6,14 +6,14 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SkipLink from "@/components/SkipLink";
 import { siteConfig } from "@/site-config";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
-  meta: SiteMeta;
+	meta: SiteMeta;
 }
 
 const {
-  meta: { title, description = siteConfig.description, ogImage, articleDate },
+	meta: { title, description = siteConfig.description, ogImage, articleDate },
 } = Astro.props;
 ---
 
@@ -25,16 +25,16 @@ const {
       ogImage={ogImage}
       articleDate={articleDate}
     />
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body>
     <div class="min-h-screen w-full relative">
       <div
         class:list={[
           "absolute inset-0 z-0",
-          "[background-image:linear-gradient(to_right,rgb(226_232_240/_20)_1px,transparent_1px),linear-gradient(to_bottom,rgb(226_232_240/_20)_1px,transparent_1px)]",
-          "dark:[background-image:linear-gradient(to_right,rgb(51_65_85/_0.2)_1px,transparent_1px),linear-gradient(to_bottom,rgb(51_65_85/_0.2)_1px,transparent_1px)]",
-          "[background-size:20px_30px]",
+          "[background-image:linear-gradient(to_right,rgb(226_232_240/_0.5)_1px,transparent_1px),linear-gradient(to_bottom,rgb(226_232_240/_0.5)_1px,transparent_1px)]",
+          "dark:[background-image:linear-gradient(to_right,rgb(51_65_85/_0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgb(51_65_85/_0.1)_1px,transparent_1px)]",
+          "[background-size:15px_15px]",
           "[mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_60%,transparent_100%)]",
           "[-webkit-mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_60%,transparent_100%)]",
         ]}

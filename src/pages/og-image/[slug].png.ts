@@ -1,5 +1,5 @@
 import type { APIContext, GetStaticPaths } from "astro";
-import { getCollection, getEntryBySlug } from "astro:content";
+import { getCollection, getEntry, getEntryBySlug } from "astro:content";
 import { readFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import satori, { type SatoriOptions } from "satori";
@@ -66,7 +66,13 @@ const markup = (title: string, pubDate: string) => html`<div
 </div>`;
 
 export async function get({ params: { slug } }: APIContext) {
-	const post = await getEntryBySlug("post", slug!);
+	if (!slug) {
+		return {
+			status: 400,
+			body: "Missing slug",
+		};
+	}
+	const post = await getEntry("post", slug);
 	const title = post?.data.title ?? siteConfig.title;
 	const postDate = getFormattedDate(post?.data.publishDate ?? Date.now(), {
 		weekday: "long",
